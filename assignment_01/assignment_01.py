@@ -9,7 +9,7 @@ def read_input():
 
 def read_matrix():
     matrix = [] 
-    f = open("assignment_01/matrix1.txt", "r")
+    f = open("matrix1.txt", "r")
     for x in f:
         matrix.append(x.strip().split(","))
     f.close()
