@@ -1,4 +1,3 @@
-import numpy as np
 import fileinput
 
 def read_input():
@@ -13,18 +12,20 @@ def read_matrix():
     for x in f:
         matrix.append(x.strip().split(","))
     f.close()
-    return np.array(matrix)
+    return matrix
 
 def print_matrix(A):
     print('\n'.join([''.join(['{:4}'.format(item) for item in row]) 
       for row in A]))
 
 def find_coordinates(A, element):
-    x, y = np.where(A == element) 
-    return x[0], y[0]
+    for i, x in enumerate(A):
+        if element in x:
+            return [i, x.index(element)]
 
 def find_letter(A, coordinates):
-    return A[coordinates[0],coordinates[1]]
+    x, y = coordinates
+    return A[x][y]
 
 def encrypt(text):
     text_list = list(text)
