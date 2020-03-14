@@ -4,7 +4,7 @@ import fileinput
 def read_input():
     lines = []
     for line in fileinput.input():
-        line_w = list(line.strip())
+        line_w = list(line.replace('\"',"").strip())
         lines.append([ord(i) for i in line_w])
     return lines
 
